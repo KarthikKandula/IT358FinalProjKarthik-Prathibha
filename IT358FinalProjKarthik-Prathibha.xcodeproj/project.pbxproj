@@ -9,14 +9,19 @@
 /* Begin PBXBuildFile section */
 		2566E5632450E33D00780C12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2566E5622450E33D00780C12 /* AppDelegate.swift */; };
 		2566E5652450E33D00780C12 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2566E5642450E33D00780C12 /* SceneDelegate.swift */; };
-		2566E5672450E33D00780C12 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2566E5662450E33D00780C12 /* FirstViewController.swift */; };
-		2566E5692450E33D00780C12 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2566E5682450E33D00780C12 /* SecondViewController.swift */; };
 		2566E56C2450E33D00780C12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2566E56A2450E33D00780C12 /* Main.storyboard */; };
 		2566E56F2450E33D00780C12 /* IT358FinalProjKarthik_Prathibha.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2566E56D2450E33D00780C12 /* IT358FinalProjKarthik_Prathibha.xcdatamodeld */; };
 		2566E5712450E34000780C12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2566E5702450E34000780C12 /* Assets.xcassets */; };
 		2566E5742450E34000780C12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2566E5722450E34000780C12 /* LaunchScreen.storyboard */; };
 		2566E57F2450E34000780C12 /* IT358FinalProjKarthik_PrathibhaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2566E57E2450E34000780C12 /* IT358FinalProjKarthik_PrathibhaTests.swift */; };
 		2566E58A2450E34000780C12 /* IT358FinalProjKarthik_PrathibhaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2566E5892450E34000780C12 /* IT358FinalProjKarthik_PrathibhaUITests.swift */; };
+		2566E59C2450E41700780C12 /* MainLandingPage_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2566E59B2450E41700780C12 /* MainLandingPage_ViewController.swift */; };
+		2566E5DD2450F23300780C12 /* Register_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2566E5DC2450F23300780C12 /* Register_ViewController.swift */; };
+		2566E5E12450F5A400780C12 /* Restaurants_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2566E5E02450F5A400780C12 /* Restaurants_ViewController.swift */; };
+		2566E5E32450F5D800780C12 /* Nutrition_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2566E5E22450F5D800780C12 /* Nutrition_ViewController.swift */; };
+		2566E5E52450F60800780C12 /* Account_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2566E5E42450F60800780C12 /* Account_ViewController.swift */; };
+		2566E5E72450F8F500780C12 /* Login_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2566E5E62450F8F500780C12 /* Login_ViewController.swift */; };
+		25E6E19C245203A5007DB3BB /* Main_TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E6E19B245203A5007DB3BB /* Main_TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +45,6 @@
 		2566E55F2450E33D00780C12 /* IT358FinalProjKarthik-Prathibha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IT358FinalProjKarthik-Prathibha.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2566E5622450E33D00780C12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2566E5642450E33D00780C12 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2566E5662450E33D00780C12 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		2566E5682450E33D00780C12 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		2566E56B2450E33D00780C12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2566E56E2450E33D00780C12 /* IT358FinalProjKarthik_Prathibha.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IT358FinalProjKarthik_Prathibha.xcdatamodel; sourceTree = "<group>"; };
 		2566E5702450E34000780C12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +56,14 @@
 		2566E5852450E34000780C12 /* IT358FinalProjKarthik-PrathibhaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IT358FinalProjKarthik-PrathibhaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2566E5892450E34000780C12 /* IT358FinalProjKarthik_PrathibhaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IT358FinalProjKarthik_PrathibhaUITests.swift; sourceTree = "<group>"; };
 		2566E58B2450E34000780C12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2566E59B2450E41700780C12 /* MainLandingPage_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLandingPage_ViewController.swift; sourceTree = "<group>"; };
+		2566E5DC2450F23300780C12 /* Register_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register_ViewController.swift; sourceTree = "<group>"; };
+		2566E5E02450F5A400780C12 /* Restaurants_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurants_ViewController.swift; sourceTree = "<group>"; };
+		2566E5E22450F5D800780C12 /* Nutrition_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition_ViewController.swift; sourceTree = "<group>"; };
+		2566E5E42450F60800780C12 /* Account_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account_ViewController.swift; sourceTree = "<group>"; };
+		2566E5E62450F8F500780C12 /* Login_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_ViewController.swift; sourceTree = "<group>"; };
+		2583F9B52452556D0047AB3D /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		25E6E19B245203A5007DB3BB /* Main_TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main_TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +98,7 @@
 				2566E57D2450E34000780C12 /* IT358FinalProjKarthik-PrathibhaTests */,
 				2566E5882450E34000780C12 /* IT358FinalProjKarthik-PrathibhaUITests */,
 				2566E5602450E33D00780C12 /* Products */,
+				2583F9B42452556D0047AB3D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,13 +117,18 @@
 			children = (
 				2566E5622450E33D00780C12 /* AppDelegate.swift */,
 				2566E5642450E33D00780C12 /* SceneDelegate.swift */,
-				2566E5662450E33D00780C12 /* FirstViewController.swift */,
-				2566E5682450E33D00780C12 /* SecondViewController.swift */,
 				2566E56A2450E33D00780C12 /* Main.storyboard */,
+				2566E5E62450F8F500780C12 /* Login_ViewController.swift */,
+				25E6E19B245203A5007DB3BB /* Main_TabBarController.swift */,
+				2566E5E42450F60800780C12 /* Account_ViewController.swift */,
+				2566E5DC2450F23300780C12 /* Register_ViewController.swift */,
 				2566E5702450E34000780C12 /* Assets.xcassets */,
 				2566E5722450E34000780C12 /* LaunchScreen.storyboard */,
 				2566E5752450E34000780C12 /* Info.plist */,
 				2566E56D2450E33D00780C12 /* IT358FinalProjKarthik_Prathibha.xcdatamodeld */,
+				2566E59B2450E41700780C12 /* MainLandingPage_ViewController.swift */,
+				2566E5E02450F5A400780C12 /* Restaurants_ViewController.swift */,
+				2566E5E22450F5D800780C12 /* Nutrition_ViewController.swift */,
 			);
 			path = "IT358FinalProjKarthik-Prathibha";
 			sourceTree = "<group>";
@@ -132,6 +149,14 @@
 				2566E58B2450E34000780C12 /* Info.plist */,
 			);
 			path = "IT358FinalProjKarthik-PrathibhaUITests";
+			sourceTree = "<group>";
+		};
+		2583F9B42452556D0047AB3D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2583F9B52452556D0047AB3D /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,10 +290,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2566E5692450E33D00780C12 /* SecondViewController.swift in Sources */,
-				2566E5672450E33D00780C12 /* FirstViewController.swift in Sources */,
+				2566E5DD2450F23300780C12 /* Register_ViewController.swift in Sources */,
+				2566E5E72450F8F500780C12 /* Login_ViewController.swift in Sources */,
+				2566E5E32450F5D800780C12 /* Nutrition_ViewController.swift in Sources */,
+				2566E5E52450F60800780C12 /* Account_ViewController.swift in Sources */,
+				25E6E19C245203A5007DB3BB /* Main_TabBarController.swift in Sources */,
 				2566E5632450E33D00780C12 /* AppDelegate.swift in Sources */,
 				2566E56F2450E33D00780C12 /* IT358FinalProjKarthik_Prathibha.xcdatamodeld in Sources */,
+				2566E59C2450E41700780C12 /* MainLandingPage_ViewController.swift in Sources */,
+				2566E5E12450F5A400780C12 /* Restaurants_ViewController.swift in Sources */,
 				2566E5652450E33D00780C12 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,6 +473,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y6PXJKLL8L;
 				INFOPLIST_FILE = "IT358FinalProjKarthik-Prathibha/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -460,6 +491,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y6PXJKLL8L;
 				INFOPLIST_FILE = "IT358FinalProjKarthik-Prathibha/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
