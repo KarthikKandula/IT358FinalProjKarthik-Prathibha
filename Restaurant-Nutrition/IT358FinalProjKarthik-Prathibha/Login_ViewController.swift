@@ -10,6 +10,11 @@ import UIKit
 
 class Login_ViewController: UIViewController {
 
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    var loginSuccess: Bool?
+    
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,13 +23,25 @@ class Login_ViewController: UIViewController {
         // This is a test to see if this works?
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        loginSuccess = false
+    }
+    
     // MARK: - loginButtonClicked
     @IBAction func loginButtonClicked(_ sender: Any) {
-        var loginSuccess = false
+        
+        if usernameTextField.text == "test" && passwordTextField.text == "test1" {
+            loginSuccess = true
+        }
         
         if loginSuccess == true {
             print("Login")
             performSegue(withIdentifier: "loginSuccess", sender: self)
+        } else {
+            let alert = UIAlertController(title: "Incorrect Details", message: "Username or Password Incorrect", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertAction.Style.cancel, handler: nil))
+
+            self.present(alert, animated: true, completion: nil)
         }
         
     }

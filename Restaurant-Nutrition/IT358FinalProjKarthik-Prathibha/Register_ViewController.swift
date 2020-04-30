@@ -10,6 +10,15 @@ import UIKit
 
 class Register_ViewController: UIViewController {
 
+    // Outlets for all TextFields
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var confirmPasswordTextField: UITextField!
+    
+    
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -17,7 +26,19 @@ class Register_ViewController: UIViewController {
         print("Registration View Controller Loading")
     }
     
+    // MARK: - registerClicked
+    @IBAction func registerClicked(_ sender: Any) {
+       var firstNameText = firstNameTextField.text
+        
+        print(firstNameText!)
+        
+        let alert = UIAlertController(title: "User Registered", message: "Go to Login to access more features", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.cancel, handler: nil))
 
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
     /*
     // MARK: - Navigation
 
