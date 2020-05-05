@@ -25,8 +25,8 @@ class Restaurants_ViewController: UIViewController, UISearchBarDelegate, UITable
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        navigationItem.titleView = searchBar
-        
+//        navigationItem.titleView = searchBar
+        navigationItem.title = "Restaurant Search"
         searchBar.delegate = self
         restaurantsTableView.dataSource = self
         restaurantsTableView.delegate = self

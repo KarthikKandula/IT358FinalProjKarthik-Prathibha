@@ -26,6 +26,8 @@ class Restaurants_Detail_ViewController: UIViewController {
     
     var restaurantID: String?
     var calledFrom: String?
+    var restaurantName: String?
+    
     
     var coreRestFavArray: [NSManagedObject] = []
     var userLoggedIn: String?
@@ -89,6 +91,7 @@ class Restaurants_Detail_ViewController: UIViewController {
             
             coreNewRestFav.setValue(userLoggedIn, forKey: "userSaved")
             coreNewRestFav.setValue(restaurantID, forKey: "restaurantID")
+            coreNewRestFav.setValue(restaurantName, forKey: "title")
             
             coreRestFavArray.insert(coreNewRestFav, at: 0)
             
@@ -113,7 +116,7 @@ class Restaurants_Detail_ViewController: UIViewController {
             }
             var deleteObject: NSManagedObject = coreRestFavArray[indexToRemove!]
             coreRestFavArray.remove(at: indexToRemove!)
-            
+
             managedContext.delete(deleteObject)
             
             do {
@@ -190,6 +193,7 @@ class Restaurants_Detail_ViewController: UIViewController {
                             
                    for i in json {
                         if i.key == "name" {
+                            self.restaurantName = i.value as? String
                             DispatchQueue.main.async { // Correct
                                 self.nameLabel.text = "Business Name: " + ((i.value as? String)!)
 //                        self.nameLabel.lineBreakMode = .byWordWrapping

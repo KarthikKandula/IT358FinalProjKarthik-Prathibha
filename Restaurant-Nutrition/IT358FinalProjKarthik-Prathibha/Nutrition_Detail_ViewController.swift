@@ -15,6 +15,7 @@ class Nutrition_Detail_ViewController: UIViewController {
     @IBOutlet weak var recipeFavSwitch: UISwitch!
     
     var receipeID: Int?
+    var recipeName: String?
     
     var coreRecipeFavArray: [NSManagedObject] = []
     var userLoggedIn: String?
@@ -49,6 +50,7 @@ class Nutrition_Detail_ViewController: UIViewController {
         }
     }
     
+    // MARK: - modifyRecipeFavorite
     func modifyRecipeFavorite(modifyType: String) {
         var coreCurrentData: [NSManagedObject] = [] // To know which user logged in
         
@@ -58,6 +60,7 @@ class Nutrition_Detail_ViewController: UIViewController {
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
+        // MARK: - modifyType "add"
         if modifyType == "add" {
             let entity = NSEntityDescription.entity(forEntityName: "RecipeFavorites", in: managedContext)!
             
@@ -66,6 +69,7 @@ class Nutrition_Detail_ViewController: UIViewController {
             
             coreNewRecipeFav.setValue(userLoggedIn, forKey: "userSaved")
             coreNewRecipeFav.setValue("\(String(describing: receipeID!))", forKey: "recipeID")
+            coreNewRecipeFav.setValue(recipeName, forKey: "title")
             
             coreRecipeFavArray.insert(coreNewRecipeFav, at: 0)
             
@@ -76,6 +80,7 @@ class Nutrition_Detail_ViewController: UIViewController {
             } catch let error as NSError {
                 print("Could not save. \(error), \(error.userInfo)")
             }
+        // MARK: - modifyType "remove"
         } else if modifyType == "remove" {
             var indexToRemove:Int?
             var i = 0
@@ -90,10 +95,11 @@ class Nutrition_Detail_ViewController: UIViewController {
             }
             let deleteObject: NSManagedObject = coreRecipeFavArray[indexToRemove!]
             coreRecipeFavArray.remove(at: indexToRemove!)
-            
+
             print(coreRecipeFavArray)
-            
+
             managedContext.delete(deleteObject)
+            
             do {
                 try managedContext.save()
             } catch let error as NSError {

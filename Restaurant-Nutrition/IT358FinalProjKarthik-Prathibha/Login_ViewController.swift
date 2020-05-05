@@ -13,9 +13,13 @@ class Login_ViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginUserDisplayTestField: UILabel!
+    @IBOutlet weak var logoutbutton: UIButton!
     
     var usernameText: String?
     var passwordText: String?
+    
+    var userLoggedIn: String = ""
     
     var coreUserDataArray: [NSManagedObject] = []
     
@@ -38,6 +42,68 @@ class Login_ViewController: UIViewController {
          username - testuser
          password - testpass
          */
+        
+        knowIfLoggedIn(operation: "determine")
+    }
+    
+    // MARK: - logoutClicked
+    @IBAction func logoutClicked(_ sender: Any) {
+        knowIfLoggedIn(operation: "logout")
+    }
+    
+    // MARK: - knowIfLoggedIn
+    func knowIfLoggedIn(operation: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        var coreCurrentData: [NSManagedObject] = []
+
+        // FetchRequest to get current data
+        let fetchRequestCurrentData = NSFetchRequest<NSManagedObject>(entityName: "CurrentSessionData")
+                   
+        // Saving Fetched CurrentData in NSManagedObject Array
+        do {
+            coreCurrentData = try managedContext.fetch(fetchRequestCurrentData)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        let justAVar = coreCurrentData[0]
+        
+        if operation == "determine" {
+            
+            if (justAVar as! CurrentSessionData).userLoggedIn == "" {
+                loginUserDisplayTestField.text = "Please Login"
+            } else {
+                userLoggedIn = (justAVar as! CurrentSessionData).userLoggedIn!
+                loginUserDisplayTestField.text = "Welcome, " + (justAVar as! CurrentSessionData).userLoggedIn!
+            }
+        } else if operation == "logout" {
+            if userLoggedIn != "" {
+                (justAVar as! CurrentSessionData).userLoggedIn = ""
+                loginUserDisplayTestField.text = "User logged out!"
+                
+                let alert = UIAlertController(title: "User logged out", message: "Login to Access more features", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: nil))
+
+                self.present(alert, animated: true, completion: nil)
+            } else if userLoggedIn == "" {
+                let alert = UIAlertController(title: "Error", message: "No User is logged in", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: nil))
+
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+            
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+        }
+        
     }
     
     // MARK: - loginButtonClicked
@@ -100,9 +166,6 @@ class Login_ViewController: UIViewController {
                 print("Could not fetch. \(error), \(error.userInfo)")
             }
             
-            print("Count")
-            print(coreCurrentData.count)
-            
             // Create a currentData array if it does not exist
             if coreCurrentData.count == 0 {
                 // entity for CurrestSessionData
@@ -119,13 +182,7 @@ class Login_ViewController: UIViewController {
             var justAVar = coreCurrentData[0]
             (justAVar as! CurrentSessionData).userLoggedIn = currentUserLoggedIn
             
-//            do {
-//                try managedContext.save()
-//            } catch let error as NSError {
-//                print("Could not save. \(error), \(error.userInfo)")
-//            }
         }
-        
     }
     
     // MARK: - prepare for segue

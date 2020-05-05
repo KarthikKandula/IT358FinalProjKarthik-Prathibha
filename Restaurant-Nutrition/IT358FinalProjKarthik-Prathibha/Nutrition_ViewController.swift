@@ -31,7 +31,7 @@ class Nutrition_ViewController: UIViewController, UISearchBarDelegate, UIPickerV
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        navigationItem.titleView = searchBar
+//        navigationItem.titleView = searchBar
         
         searchBar.delegate = self
         nutritionTableView.dataSource = self
@@ -70,7 +70,8 @@ class Nutrition_ViewController: UIViewController, UISearchBarDelegate, UIPickerV
     // MARK: - prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? Nutrition_Detail_ViewController {
-            destination.receipeID = rowClickedOn! // IDsinUse[rowClickedOn!]
+            destination.receipeID = rowClickedOn!
+            destination.recipeName = tableDisplayData[nutritionTableView.indexPathForSelectedRow!.row] // "h"
         }
     }
     

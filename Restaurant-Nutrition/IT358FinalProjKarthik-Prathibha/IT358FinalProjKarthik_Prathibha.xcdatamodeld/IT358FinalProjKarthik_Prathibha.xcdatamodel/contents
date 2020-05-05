@@ -5,10 +5,12 @@
     </entity>
     <entity name="RecipeFavorites" representedClassName="RecipeFavorites" syncable="YES" codeGenerationType="class">
         <attribute name="recipeID" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="userSaved" optional="YES" attributeType="String"/>
     </entity>
     <entity name="RestaurantFavorites" representedClassName="RestaurantFavorites" syncable="YES" codeGenerationType="class">
         <attribute name="restaurantID" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="userSaved" optional="YES" attributeType="String"/>
     </entity>
     <entity name="UserLoginInfo" representedClassName="UserLoginInfo" syncable="YES" codeGenerationType="class">
@@ -19,8 +21,8 @@
     </entity>
     <elements>
         <element name="CurrentSessionData" positionX="-54" positionY="18" width="128" height="58"/>
-        <element name="RecipeFavorites" positionX="-45" positionY="18" width="128" height="73"/>
-        <element name="RestaurantFavorites" positionX="-54" positionY="9" width="128" height="73"/>
+        <element name="RecipeFavorites" positionX="-45" positionY="18" width="128" height="88"/>
+        <element name="RestaurantFavorites" positionX="-54" positionY="9" width="128" height="88"/>
         <element name="UserLoginInfo" positionX="-63" positionY="-18" width="128" height="103"/>
     </elements>
 </model>

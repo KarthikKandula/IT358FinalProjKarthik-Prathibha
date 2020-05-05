@@ -36,7 +36,8 @@ class Register_ViewController: UIViewController {
     
     // MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
-        
+        passwordTextField.isSecureTextEntry = true
+        confirmPasswordTextField.isSecureTextEntry = true
     }
     
     // MARK: - registerClicked
