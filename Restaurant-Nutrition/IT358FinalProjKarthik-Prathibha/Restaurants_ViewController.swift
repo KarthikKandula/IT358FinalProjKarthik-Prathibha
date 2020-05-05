@@ -9,16 +9,7 @@
 import Foundation
 import UIKit
 
-class Restaurants_ViewController: UIViewController, UISearchBarDelegate,  UITableViewDataSource, UITableViewDelegate // UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate UITextFieldDelegate,
-{
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        <#code#>
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        <#code#>
-//    }
-//
+class Restaurants_ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var restaurantsCitySearch: UITextField!

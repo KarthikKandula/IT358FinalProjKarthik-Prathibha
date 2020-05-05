@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CurrentSessionData" representedClassName="CurrentSessionData" syncable="YES" codeGenerationType="class">
+        <attribute name="userLoggedIn" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="RecipeFavorites" representedClassName="RecipeFavorites" syncable="YES" codeGenerationType="class">
+        <attribute name="recipeID" optional="YES" attributeType="String"/>
+        <attribute name="userSaved" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="RestaurantFavorites" representedClassName="RestaurantFavorites" syncable="YES" codeGenerationType="class">
+        <attribute name="restaurantID" optional="YES" attributeType="String"/>
+        <attribute name="userSaved" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="UserLoginInfo" representedClassName="UserLoginInfo" syncable="YES" codeGenerationType="class">
+        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="lastName" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="username" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="CurrentSessionData" positionX="-54" positionY="18" width="128" height="58"/>
+        <element name="RecipeFavorites" positionX="-45" positionY="18" width="128" height="73"/>
+        <element name="RestaurantFavorites" positionX="-54" positionY="9" width="128" height="73"/>
+        <element name="UserLoginInfo" positionX="-63" positionY="-18" width="128" height="103"/>
+    </elements>
 </model>

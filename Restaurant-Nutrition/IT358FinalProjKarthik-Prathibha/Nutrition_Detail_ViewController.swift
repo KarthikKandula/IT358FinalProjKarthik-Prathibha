@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import CoreData
 
 class Nutrition_Detail_ViewController: UIViewController {
 
     @IBOutlet weak var nutritionDetailInstructionsLabel: UILabel!
+    @IBOutlet weak var recipeFavSwitch: UISwitch!
     
     var receipeID: Int?
+    
+    var coreRecipeFavArray: [NSManagedObject] = []
+    var userLoggedIn: String?
     
     var tableDisplayData: [String] = []
     
@@ -26,8 +31,120 @@ class Nutrition_Detail_ViewController: UIViewController {
     // MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         print(receipeID!)
+        knowIfFavorite()
         
         knowAPIData()
+    }
+    
+    // MARK: - switchClicked
+    @IBAction func switchClicked(_ sender: Any) {
+        if recipeFavSwitch.isOn {
+            print("isOn triggered")
+            recipeFavSwitch.setOn(true, animated: true)
+            modifyRecipeFavorite(modifyType: "add")
+        } else {
+            print("else triggered")
+            recipeFavSwitch.setOn(false, animated: true)
+            modifyRecipeFavorite(modifyType: "remove")
+        }
+    }
+    
+    func modifyRecipeFavorite(modifyType: String) {
+        var coreCurrentData: [NSManagedObject] = [] // To know which user logged in
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        if modifyType == "add" {
+            let entity = NSEntityDescription.entity(forEntityName: "RecipeFavorites", in: managedContext)!
+            
+            // NSManagedObject for creating new object
+            let coreNewRecipeFav: NSManagedObject = NSManagedObject(entity: entity, insertInto: managedContext)
+            
+            coreNewRecipeFav.setValue(userLoggedIn, forKey: "userSaved")
+            coreNewRecipeFav.setValue("\(String(describing: receipeID!))", forKey: "recipeID")
+            
+            coreRecipeFavArray.insert(coreNewRecipeFav, at: 0)
+            
+            print(coreRecipeFavArray)
+            
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+        } else if modifyType == "remove" {
+            var indexToRemove:Int?
+            var i = 0
+            
+            for eachFav in coreRecipeFavArray {
+                if (eachFav as! RecipeFavorites).recipeID == "\(String(describing: receipeID!))" && (eachFav as! RecipeFavorites).userSaved == userLoggedIn {
+                    print("Condition Satisfied")
+                    print(i)
+                    indexToRemove = i
+                }
+                i += 1
+            }
+            let deleteObject: NSManagedObject = coreRecipeFavArray[indexToRemove!]
+            coreRecipeFavArray.remove(at: indexToRemove!)
+            
+            print(coreRecipeFavArray)
+            
+            managedContext.delete(deleteObject)
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+        }
+    }
+    
+    // MARK: - knowIfFavorite
+    func knowIfFavorite() {
+        var coreCurrentData: [NSManagedObject] = [] // To know which user logged in
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        // FetchRequest to get which user loggedIN
+        let fetchRequestCurrentData = NSFetchRequest<NSManagedObject>(entityName: "CurrentSessionData")
+                   
+        // Saving Fetched CurrentData in NSManagedObject Array
+        do {
+            coreCurrentData = try managedContext.fetch(fetchRequestCurrentData)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+                   
+        let justAVar = coreCurrentData[0]
+        userLoggedIn = (justAVar as! CurrentSessionData).userLoggedIn
+        print(userLoggedIn!)
+        // Fetching Restaurant Favorites Entity data
+        let fetchRequestRestFavs = NSFetchRequest<NSManagedObject>(entityName: "RecipeFavorites")
+        
+        // Saving Fetched UserData in a NSManagedObject Array
+        do {
+            coreRecipeFavArray = try managedContext.fetch(fetchRequestRestFavs)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        for eachFav in coreRecipeFavArray {
+            if (eachFav as! RecipeFavorites).recipeID == "\(String(describing: receipeID!))" && (eachFav as! RecipeFavorites).userSaved == userLoggedIn {
+                recipeFavSwitch.setOn(true, animated: true)
+            }
+        }
+    }
+    
+    // MARK: - ingredientsClicked
+    @IBAction func ingredientsClicked(_ sender: Any) {
+        performSegue(withIdentifier: "RecipeMoreDetailsSegue", sender: self)
     }
     
     // MARK: - knowAPIData
@@ -78,11 +195,12 @@ class Nutrition_Detail_ViewController: UIViewController {
     /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? Ingredients_Nutrition_ViewController {
+            destination.recipeID = receipeID!
+        }
     }
-    */
+    
 
 }

@@ -23,6 +23,8 @@
 		2566E5E72450F8F500780C12 /* Login_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2566E5E62450F8F500780C12 /* Login_ViewController.swift */; };
 		2581C7052459D92900F22A99 /* Nutrition_Detail_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2581C7042459D92900F22A99 /* Nutrition_Detail_ViewController.swift */; };
 		2581C707245A336700F22A99 /* Restaurants_Detail_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2581C706245A336700F22A99 /* Restaurants_Detail_ViewController.swift */; };
+		25DABF9F2460D284000860C1 /* Reviews_Restaurant_Details_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DABF9E2460D284000860C1 /* Reviews_Restaurant_Details_ViewController.swift */; };
+		25DABFA124610AFD000860C1 /* Ingredients_Nutrition_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25DABFA024610AFD000860C1 /* Ingredients_Nutrition_ViewController.swift */; };
 		25E6E19C245203A5007DB3BB /* Main_TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E6E19B245203A5007DB3BB /* Main_TabBarController.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,8 @@
 		2581C7042459D92900F22A99 /* Nutrition_Detail_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition_Detail_ViewController.swift; sourceTree = "<group>"; };
 		2581C706245A336700F22A99 /* Restaurants_Detail_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurants_Detail_ViewController.swift; sourceTree = "<group>"; };
 		2583F9B52452556D0047AB3D /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		25DABF9E2460D284000860C1 /* Reviews_Restaurant_Details_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews_Restaurant_Details_ViewController.swift; sourceTree = "<group>"; };
+		25DABFA024610AFD000860C1 /* Ingredients_Nutrition_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients_Nutrition_ViewController.swift; sourceTree = "<group>"; };
 		25E6E19B245203A5007DB3BB /* Main_TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main_TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +126,8 @@
 				2566E5622450E33D00780C12 /* AppDelegate.swift */,
 				2566E5642450E33D00780C12 /* SceneDelegate.swift */,
 				2566E56A2450E33D00780C12 /* Main.storyboard */,
+				25DABFA024610AFD000860C1 /* Ingredients_Nutrition_ViewController.swift */,
+				25DABF9E2460D284000860C1 /* Reviews_Restaurant_Details_ViewController.swift */,
 				2566E5E62450F8F500780C12 /* Login_ViewController.swift */,
 				25E6E19B245203A5007DB3BB /* Main_TabBarController.swift */,
 				2566E5E42450F60800780C12 /* Account_ViewController.swift */,
@@ -300,6 +306,7 @@
 				2566E5E72450F8F500780C12 /* Login_ViewController.swift in Sources */,
 				2566E5E32450F5D800780C12 /* Nutrition_ViewController.swift in Sources */,
 				2566E5E52450F60800780C12 /* Account_ViewController.swift in Sources */,
+				25DABFA124610AFD000860C1 /* Ingredients_Nutrition_ViewController.swift in Sources */,
 				25E6E19C245203A5007DB3BB /* Main_TabBarController.swift in Sources */,
 				2581C7052459D92900F22A99 /* Nutrition_Detail_ViewController.swift in Sources */,
 				2566E5632450E33D00780C12 /* AppDelegate.swift in Sources */,
@@ -307,6 +314,7 @@
 				2566E59C2450E41700780C12 /* MainLandingPage_ViewController.swift in Sources */,
 				2566E5E12450F5A400780C12 /* Restaurants_ViewController.swift in Sources */,
 				2581C707245A336700F22A99 /* Restaurants_Detail_ViewController.swift in Sources */,
+				25DABF9F2460D284000860C1 /* Reviews_Restaurant_Details_ViewController.swift in Sources */,
 				2566E5652450E33D00780C12 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

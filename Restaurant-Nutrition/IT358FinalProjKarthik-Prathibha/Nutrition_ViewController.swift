@@ -65,7 +65,6 @@ class Nutrition_ViewController: UIViewController, UISearchBarDelegate, UIPickerV
         rowClickedOn = IDsinUse[indexPath.row]
         
         performSegue(withIdentifier: "nutritionDisplaySegue", sender: self)
-
     }
     
     // MARK: - prepare for segue
