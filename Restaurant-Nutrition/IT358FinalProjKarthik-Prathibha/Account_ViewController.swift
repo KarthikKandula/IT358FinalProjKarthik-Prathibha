@@ -172,36 +172,38 @@ class Account_ViewController: UIViewController {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         
-        let justAVar = coreCurrentData[0]
-        
-        if operation == "determine" {
+        if coreCurrentData.count == 0 {
+            testAccountLabel.text = "User not logged in"
+        } else {
+            let justAVar = coreCurrentData[0]
             
-            if (justAVar as! CurrentSessionData).userLoggedIn == "" {
-                testAccountLabel.text = "User not logged in"
-            } else {
-                userLoggedIn = (justAVar as! CurrentSessionData).userLoggedIn!
-                testAccountLabel.text = "Welcome, " + (justAVar as! CurrentSessionData).userLoggedIn!
-            }
-        } else if operation == "logout" {
-            (justAVar as! CurrentSessionData).userLoggedIn = ""
-            testAccountLabel.text = "User logged out!"
-            firstNameTextField.text = ""
-            lastNameTextField.text = ""
-            userNameTextField.text = ""
-            
-            let alert = UIAlertController(title: "User logged out", message: "Go to Login page to login", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: nil))
+            if operation == "determine" {
+                
+                if (justAVar as! CurrentSessionData).userLoggedIn == "" {
+                    testAccountLabel.text = "User not logged in"
+                } else {
+                    userLoggedIn = (justAVar as! CurrentSessionData).userLoggedIn!
+                    testAccountLabel.text = "Welcome, " + (justAVar as! CurrentSessionData).userLoggedIn!
+                }
+            } else if operation == "logout" {
+                (justAVar as! CurrentSessionData).userLoggedIn = ""
+                testAccountLabel.text = "User logged out!"
+                firstNameTextField.text = ""
+                lastNameTextField.text = ""
+                userNameTextField.text = ""
+                
+                let alert = UIAlertController(title: "User logged out", message: "Go to Login page to login", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: nil))
 
-            self.present(alert, animated: true, completion: nil)
-            
-            do {
-                try managedContext.save()
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
+                self.present(alert, animated: true, completion: nil)
+                
+                do {
+                    try managedContext.save()
+                } catch let error as NSError {
+                    print("Could not save. \(error), \(error.userInfo)")
+                }
             }
         }
-        
-        
     }
     
     // MARK: - Navigation
