@@ -69,40 +69,43 @@ class Login_ViewController: UIViewController {
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
-        
-        let justAVar = coreCurrentData[0]
-        
-        if operation == "determine" {
+        if coreCurrentData.count == 0 {
+            loginUserDisplayTestField.text = "Please Login"
+        } else {
+            let justAVar = coreCurrentData[0]
             
-            if (justAVar as! CurrentSessionData).userLoggedIn == "" {
-                loginUserDisplayTestField.text = "Please Login"
-            } else {
-                userLoggedIn = (justAVar as! CurrentSessionData).userLoggedIn!
-                loginUserDisplayTestField.text = "Welcome, " + (justAVar as! CurrentSessionData).userLoggedIn!
-            }
-        } else if operation == "logout" {
-            if userLoggedIn != "" {
-                (justAVar as! CurrentSessionData).userLoggedIn = ""
-                loginUserDisplayTestField.text = "User logged out!"
+            if operation == "determine" {
                 
-                let alert = UIAlertController(title: "User logged out", message: "Login to Access more features", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: nil))
+                if (justAVar as! CurrentSessionData).userLoggedIn == "" {
+                    loginUserDisplayTestField.text = "Please Login"
+                } else {
+                    userLoggedIn = (justAVar as! CurrentSessionData).userLoggedIn!
+                    loginUserDisplayTestField.text = "Welcome, " + (justAVar as! CurrentSessionData).userLoggedIn!
+                }
+            } else if operation == "logout" {
+                if userLoggedIn != "" {
+                    (justAVar as! CurrentSessionData).userLoggedIn = ""
+                    loginUserDisplayTestField.text = "User logged out!"
+                    
+                    let alert = UIAlertController(title: "User logged out", message: "Login to Access more features", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: nil))
 
-                self.present(alert, animated: true, completion: nil)
-            } else if userLoggedIn == "" {
-                let alert = UIAlertController(title: "Error", message: "No User is logged in", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                } else if userLoggedIn == "" {
+                    let alert = UIAlertController(title: "Error", message: "No User is logged in", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: nil))
 
-                self.present(alert, animated: true, completion: nil)
-            }
-            
-            
-            do {
-                try managedContext.save()
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
+                    self.present(alert, animated: true, completion: nil)
+                }
+                
+                do {
+                    try managedContext.save()
+                } catch let error as NSError {
+                    print("Could not save. \(error), \(error.userInfo)")
+                }
             }
         }
+        
         
     }
     
