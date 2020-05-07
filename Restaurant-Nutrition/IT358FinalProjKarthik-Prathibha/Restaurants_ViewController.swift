@@ -82,6 +82,7 @@ class Restaurants_ViewController: UIViewController, UISearchBarDelegate, UITable
     // MARK: - processAPIResponseData
     func processAPIResponseData() {
         tableDisplayData = []
+        IDsinUse = []
         let headers = [
                 "Authorization": "Bearer Rh8RFDCpZaxFBvs32bGz85Ia_3ovzNnzEXUpoNnyK7BI5EirpdIgLT-u28R06UGblMo_HeD4EnOnfX8cAJYQkztTGEHqGpeMImWhH8myf9NXIgqu-KZ6VCnhV0enXnYx"
             ]

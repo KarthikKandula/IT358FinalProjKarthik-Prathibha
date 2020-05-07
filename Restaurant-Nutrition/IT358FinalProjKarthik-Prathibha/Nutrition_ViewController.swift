@@ -37,7 +37,7 @@ class Nutrition_ViewController: UIViewController, UISearchBarDelegate, UIPickerV
         nutritionTableView.dataSource = self
         nutritionTableView.delegate = self
         
-        pickerData = ["Search Recipes using keyword", "Search MenuItems in Restaurants", "Search Grocery Products", "Get a Random Food Joke", "Get a Random Food Trivia"]
+        pickerData = ["Search Recipes using keyword", "Get a Random Food Joke", "Get a Random Food Trivia"] // "Search MenuItems in Restaurants", "Search Grocery Products",
         
         // Loading onClick picker for search criteria
         createPickerView()
@@ -79,11 +79,11 @@ class Nutrition_ViewController: UIViewController, UISearchBarDelegate, UIPickerV
     func determineEndPoints() {
         if pickedSearchCriteria == "Search Recipes using keyword" {
             endPointInUse = "/recipes/search?query="
-        } else if pickedSearchCriteria == "Search MenuItems in Restaurants" {
+        }/* else if pickedSearchCriteria == "Search MenuItems in Restaurants" {
             endPointInUse = "/food/menuItems/search?query="
         } else if pickedSearchCriteria == "Search Grocery Products" {
             endPointInUse = "/food/products/search?query="
-        } else if pickedSearchCriteria == "Get a Random Food Joke" {
+        } */ else if pickedSearchCriteria == "Get a Random Food Joke" {
             endPointInUse = "/food/jokes/random"
         } else if pickedSearchCriteria == "Get a Random Food Trivia" {
             endPointInUse = "/food/trivia/random"
@@ -140,7 +140,7 @@ class Nutrition_ViewController: UIViewController, UISearchBarDelegate, UIPickerV
     // MARK: - processAPIResponseData
     func processAPIResponseData() {
         tableDisplayData = []
-        let APIKeys = ["results", "menuItems", "products"]
+        let APIKeys = ["results"] // , "menuItems", "products"
         
         let headers = [
                 "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
@@ -176,7 +176,7 @@ class Nutrition_ViewController: UIViewController, UISearchBarDelegate, UIPickerV
                                             
                                         DispatchQueue.main.async { // Correct
                                             self.displayLabel.text = ""
-                                        self.nutritionTableView.reloadData()
+                                            self.nutritionTableView.reloadData()
                                         }
                                     } else if j.key == "id" {
                                         self.IDsinUse.append( j.value as! Int)
@@ -198,7 +198,7 @@ class Nutrition_ViewController: UIViewController, UISearchBarDelegate, UIPickerV
         searchBar.resignFirstResponder()
         print("Searching")
         
-        if pickedSearchCount == 0 || pickedSearchCount == 1 || pickedSearchCount == 2 {
+        if pickedSearchCount == 0 { // || pickedSearchCount == 1 || pickedSearchCount == 2
             processAPIResponseData()
         }
         
@@ -261,7 +261,7 @@ class Nutrition_ViewController: UIViewController, UISearchBarDelegate, UIPickerV
     // MARK: - endEditing
     @objc func endEditing() {
         view.endEditing(true)
-        if pickedSearchCount == 4 || pickedSearchCount == 3 {
+        if pickedSearchCount == 1 || pickedSearchCount == 2 {
             jokesAndTrivia()
         }
     }

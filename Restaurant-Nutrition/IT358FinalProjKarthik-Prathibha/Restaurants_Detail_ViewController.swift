@@ -221,7 +221,7 @@ class Restaurants_Detail_ViewController: UIViewController {
                             }
                         } else if i.key == "rating" {
                             DispatchQueue.main.async { // Correct
-                                self.ratingLabel.text = "Rating: 4.5" // (i.value as? String)
+                                self.ratingLabel.text = "Rating: \(i.value)" //" 4.5" // (i.value as? String)
                                 self.ratingLabel.sizeToFit()
                             }
                         } else if i.key == "price" {
